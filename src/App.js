@@ -1,7 +1,5 @@
 class App {
-  async run() {
-    // console.log('hello world');
-  }
+  async run() {}
 }
 
 export default App;
