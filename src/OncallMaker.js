@@ -13,20 +13,9 @@ class OncallMaker {
         date.dayOfWeek !== '일' &&
         !date.isHoliday
       ) {
-        const pickedOne = this.rotateCrew(normalCrews);
-        if (this.checkAvaliablity(onCall, pickedOne)) {
-          reserved = pickedOne;
-          const pickedAgainOne = this.rotateCrew(normalCrews);
-          onCall.push(pickedAgainOne);
-        } else onCall.push(pickedOne);
+        this.checkAndChoosePickOne(normalCrews, onCall, reserved);
       } else {
-        const pickedOne = this.rotateCrew(holidayCrews);
-
-        if (this.checkAvaliablity(onCall, pickedOne)) {
-          reserved = pickedOne;
-          const pickedAgainOne = this.rotateCrew(holidayCrews);
-          onCall.push(pickedAgainOne);
-        } else onCall.push(pickedOne);
+        this.checkAndChoosePickOne(holidayCrews, onCall, reserved);
       }
     });
     this.#onCall = onCall;
@@ -34,6 +23,15 @@ class OncallMaker {
 
   get onCall() {
     return this.#onCall;
+  }
+
+  checkAndChoosePickOne(crews, onCall, reserved) {
+    const pickedOne = this.rotateCrew(crews);
+    if (this.checkAvaliablity(onCall, pickedOne)) {
+      reserved = pickedOne;
+      const pickedAgainOne = this.rotateCrew(crews);
+      onCall.push(pickedAgainOne);
+    } else onCall.push(pickedOne);
   }
 
   rotateCrew(crews) {
