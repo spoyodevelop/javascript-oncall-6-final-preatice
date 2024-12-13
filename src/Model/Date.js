@@ -14,6 +14,22 @@ class Date {
     this.#isHoliday = isHoliday;
   }
 
+  get month() {
+    return this.#month;
+  }
+
+  get day() {
+    return this.#day;
+  }
+
+  get dayOfWeek() {
+    return this.#dayOfWeek;
+  }
+
+  get isHoliday() {
+    return this.#isHoliday;
+  }
+
   toString() {
     let displayHoliday = '';
     if (this.#isHoliday) displayHoliday = '(휴일)';
