@@ -1,3 +1,3 @@
 ### 테스트
 
-- [x] git init
+- [x] git init!
