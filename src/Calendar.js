@@ -39,7 +39,5 @@ class Calendar {
       if (inputMonth === month && inputDay === day) return true;
     });
   }
-
-  getDayOfWeek(dayOfWeek) {}
 }
 export default Calendar;
