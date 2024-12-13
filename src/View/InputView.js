@@ -24,6 +24,18 @@ const InputView = {
     const holidayCrews = validateCrews(input);
     return holidayCrews;
   },
+
+  async getInputs() {
+    while (true) {
+      const monthAndDay = await this.getMouthAndDay();
+      if (!monthAndDay) continue;
+      const normalCrews = await this.getNormalCrews();
+      if (!normalCrews) continue;
+      const holidayCrews = await this.getHoliDayCrews();
+      if (!holidayCrews) continue;
+      return { monthAndDay, normalCrews, holidayCrews };
+    }
+  },
 };
 
 export default InputView;
