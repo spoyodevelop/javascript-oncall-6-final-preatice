@@ -16,17 +16,17 @@ function checkAvailableDay(day) {
 
 export default function validateMonthAndDay(inputString) {
   if (!inputString.includes(',')) {
-    OutputView.printMessage(MESSAGES.error.notLegitPattern);
+    OutputView.printMessage(MESSAGES.error.NOT_LEGIT_PATTERN);
     return null;
   }
   const [month, day] = inputString.split(',');
   if (!checkAvailableMonth(month)) {
-    OutputView.printMessage(MESSAGES.error.notLegitMonth);
+    OutputView.printMessage(MESSAGES.error.NOT_LEGIT_MONTH);
     return null;
   }
 
   if (!checkAvailableDay(day)) {
-    OutputView.printMessage(MESSAGES.error.notLegitDay);
+    OutputView.printMessage(MESSAGES.error.NOT_LEGIT_DAY);
     return null;
   }
   return { month: +month, day };
